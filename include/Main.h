@@ -5,8 +5,6 @@
 
 using namespace std;
 
-#define IMPORT __declspec(dllimport)
-#define EXPORT __declspec(dllexport)
 #define foreach(lst, type, var) for(list<type>::iterator var = lst.begin(); (var != lst.end()); var++)
 typedef unsigned int uint;
 typedef int (__cdecl *_DataStartup)(const char *sz, void *thing, void *thing2);
