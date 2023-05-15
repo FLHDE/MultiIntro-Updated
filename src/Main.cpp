@@ -85,8 +85,9 @@ void WriteHooks()
 	WriteProcMem(freeAddr, (void*)&iFree, 1);
 }
 
-void WritePreHooks()
+void Setup()
 {
+    // Write pre-hooks
 	FARPROC fpDataStartup = (FARPROC)DataStartup;
 	FARPROC fpOldDataStartup;
 	void *pAddress = (void*)((char*)hModFL + 0x1C6CB8);
@@ -100,8 +101,7 @@ void WritePreHooks()
 BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
 {
 	if(fdwReason == DLL_PROCESS_ATTACH)
-		WritePreHooks();
-	//else if(fdwReason == DLL_PROCESS_DETACH)
+		Setup();
 
 	return true;
 }
