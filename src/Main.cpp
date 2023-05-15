@@ -3,6 +3,8 @@
 void WriteHooks();
 void FindIntroBases();
 
+const DWORD hModFL = 0x400000;
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void WriteProcMem(void *pAddress, void *pMem, int iSize)
@@ -71,7 +73,6 @@ void FindIntroBases()
 
 void WriteHooks()
 {
-	HMODULE hModFL = GetModuleHandle(0);
 	char szOver[9];
 	szOver[0] = '\xB8'; //MOV EAX
 	szOver[5] = '\xFF'; //CALL
@@ -89,14 +90,13 @@ void WriteHooks()
 
 void WritePreHooks()
 {
-	HMODULE hModFL = GetModuleHandle(0);
 	FARPROC fpDataStartup = (FARPROC)DataStartup;
 	FARPROC fpOldDataStartup;
 	void *pAddress = (void*)((char*)hModFL + 0x1C6CB8);
 	ReadProcMem(pAddress, &fpOldDataStartup, 4);
 	WriteProcMem(pAddress, &fpDataStartup, 4);
 	DataStartupOld = (_DataStartup)fpOldDataStartup;
-	
+
 	srand(timeGetTime());
 }
 
