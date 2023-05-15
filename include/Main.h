@@ -27,3 +27,6 @@ struct PATCH_INFO
 
 	PATCH_INFO_ENTRY piEntries[128];
 };
+
+void WriteHooks();
+void FindIntroBases();
