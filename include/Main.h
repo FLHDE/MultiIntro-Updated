@@ -1,7 +1,8 @@
-#include <string>
-#include <vector>
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
+#include <string>
+#include <vector>
+
 using namespace std;
 
 #define IMPORT __declspec(dllimport)
