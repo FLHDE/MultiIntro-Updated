@@ -93,8 +93,6 @@ void WritePreHooks()
 	ReadProcMem(pAddress, &fpOldDataStartup, 4);
 	WriteProcMem(pAddress, &fpDataStartup, 4);
 	DataStartupOld = (_DataStartup)fpOldDataStartup;
-
-	srand(timeGetTime());
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
