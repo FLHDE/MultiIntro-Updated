@@ -9,9 +9,12 @@ Allows more than three intro screens to be displayed. It will also pick one at r
 Download the latest `MultiIntro.zip` from [Releases](https://github.com/BC46/MultiIntro-Updated/releases). Extract both the `dll` and `ini` file and move them to the `EXE` folder of your Freelancer installation.
 Next, open the `dacom.ini` file and append `MultiIntro.dll` to the `[Libraries]` section.
 
+## Options
+In the `MultiIntro.ini` config file, a few options with documentation are available to modify the plugin's behavior.
+
 ## Build instructions
 Build the project using the `NMAKE` tool from Microsoft Visual C++ 6.0 (VC6 or Visual Studio 98) with the included makefile.
-This will output the `thruster_toggle.dll` file in the `bin` folder.
+This will output the `MultiIntro.dll` file in the `bin` folder.
 Building the project using other compilers may require the code to be modified.
 
 ## Credits
