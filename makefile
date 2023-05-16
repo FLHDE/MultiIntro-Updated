@@ -34,12 +34,9 @@ $(RES_FILE): $(RC_FILE)
 $(LIB_FILE): $(DEF_FILE) $(DEF_INCLUDE_FILE)
     lib $(LIB_FLAGS) /def:$(DEF_FILE) /name:COMMON /out:$(LIB_FILE)
 
-$(BIN_DIR):
-    if not exist $(BIN_DIR) mkdir $(BIN_DIR)
-
 $(OBJ_DIR):
     if not exist $(OBJ_DIR) mkdir $(OBJ_DIR)
 
 # Dependencies
-$(INCLUDE_DIR)\Main.h: $(INCLUDE_DIR)\Common.h
+$(INCLUDE_DIR)\Main.h: $(DEF_INCLUDE_FILE)
 $(SRC_DIR)\main.cpp: $(INCLUDE_DIR)\Main.h

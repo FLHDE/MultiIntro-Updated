@@ -1,4 +1,5 @@
 #include "Main.h"
+#include "ConfigReader.h"
 
 const DWORD hModFL = 0x400000;
 
@@ -87,6 +88,15 @@ void WriteHooks()
 
 void Setup()
 {
+    const std::string configPath = "MultiIntro.ini";
+
+    // Config reading
+    IntroConfig config;
+    ConfigReader cr;
+
+    // Get the config
+    cr.GetConfig(configPath, config);
+
     // Write pre-hooks
 	FARPROC fpDataStartup = (FARPROC)DataStartup;
 	FARPROC fpOldDataStartup;
