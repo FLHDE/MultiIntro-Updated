@@ -3,6 +3,8 @@
 
 #define IMPORT __declspec(dllimport)
 
+typedef unsigned int uint;
+
 namespace Universe
 {
 	IMPORT uint get_base_id(char const *);
