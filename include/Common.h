@@ -8,7 +8,7 @@
 
 namespace Universe
 {
-	IMPORT UINT get_base_id(char const *);
+    IMPORT UINT get_base_id(char const *);
 }
 
 class IMPORT INI_Reader

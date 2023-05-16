@@ -10,19 +10,19 @@ typedef int (__cdecl *_DataStartup)(const char *sz, void *thing, void *thing2);
 
 struct PATCH_INFO_ENTRY
 {
-	UINT pAddress;
-	void *pNewValue;
-	UINT iSize;
-	void *pOldValue;
-	bool bAlloced;
+    UINT pAddress;
+    void *pNewValue;
+    UINT iSize;
+    void *pOldValue;
+    bool bAlloced;
 };
 
 struct PATCH_INFO
 {
-	char	*szBinName;
-	UINT	pBaseAddress;
+    char    *szBinName;
+    UINT    pBaseAddress;
 
-	PATCH_INFO_ENTRY piEntries[128];
+    PATCH_INFO_ENTRY piEntries[128];
 };
 
 void WriteHooks();
