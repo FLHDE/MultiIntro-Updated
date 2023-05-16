@@ -13,6 +13,9 @@ namespace Universe
 class IMPORT INI_Reader
 {
 public:
+    INI_Reader();
+    ~INI_Reader();
+
     bool open(char const *, bool);
     bool read_header(void);
     bool is_header(char const *);
