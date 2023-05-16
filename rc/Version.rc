@@ -28,8 +28,8 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,1,0,0
- PRODUCTVERSION 0,1,0,0
+ FILEVERSION 0,2,0,0
+ PRODUCTVERSION 0,2,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -44,13 +44,13 @@ BEGIN
     BEGIN
         BLOCK "040904b0"
         BEGIN
-            VALUE "CompanyName", "M0tah\0"
+            VALUE "CompanyName", "M0tah & BC46\0"
             VALUE "FileDescription", "More than 3 intros.\0"
-            VALUE "FileVersion", "0, 1, 0, 0\0"
+            VALUE "FileVersion", "0, 2, 0, 0\0"
             VALUE "InternalName", "MultiIntro\0"
             VALUE "OriginalFilename", "MultiIntro.dll\0"
             VALUE "ProductName", "  MultiIntro\0"
-            VALUE "ProductVersion", "0, 1, 0, 0\0"
+            VALUE "ProductVersion", "0, 2, 0, 0\0"
         END
     END
     BLOCK "VarFileInfo"
@@ -68,18 +68,18 @@ END
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE DISCARDABLE 
+1 TEXTINCLUDE DISCARDABLE
 BEGIN
     "resource.h\0"
 END
 
-2 TEXTINCLUDE DISCARDABLE 
+2 TEXTINCLUDE DISCARDABLE
 BEGIN
     "#include ""afxres.h""\r\n"
     "\0"
 END
 
-3 TEXTINCLUDE DISCARDABLE 
+3 TEXTINCLUDE DISCARDABLE
 BEGIN
     "\r\n"
     "\0"
