@@ -1,8 +1,11 @@
 #include "Main.h"
 #include "ConfigReader.h"
 
+IntroConfig config;
+
 const DWORD hModFL = 0x400000;
 DWORD dwOld;
+UINT currentIntro = 0;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -29,10 +32,14 @@ void ReadProcMem(void *pAddress, void *pMem, int iSize)
 std::vector<UINT> vIntroBaseIDs;
 UINT GetIntroBaseID()
 {
+    if (currentIntro && !config.randomIntroOnMenuVisit)
+        return currentIntro;
+
     double fRand = (double)rand()/(RAND_MAX+1);
     fRand = fRand * vIntroBaseIDs.size();
     UINT i = (UINT)fRand;
-    return vIntroBaseIDs[i];
+
+    return currentIntro = vIntroBaseIDs[i];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -51,11 +58,14 @@ int __cdecl DataStartup(const char *sz, void *thing, void *thing2)
 void FindIntroBases()
 {
     char szBuf[32];
-    for(UINT i=1;;i++)
+
+    bool unknownIntroAmount = config.introAmount <= 0;
+
+    for (UINT i = 1; unknownIntroAmount || i <= config.introAmount; i++)
     {
         sprintf(szBuf, "Intro%u_Base", i);
         UINT iBaseID = Universe::get_base_id(szBuf);
-        if(iBaseID)
+        if (iBaseID)
         {
             vIntroBaseIDs.push_back(iBaseID);
         }
@@ -89,11 +99,8 @@ void Setup()
 {
     const std::string configPath = "MultiIntro.ini";
 
-    // Config reading
-    IntroConfig config;
-    ConfigReader cr;
-
     // Get the config
+    ConfigReader cr;
     cr.GetConfig(configPath, config);
 
     // Write pre-hooks
