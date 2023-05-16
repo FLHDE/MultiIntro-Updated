@@ -27,12 +27,12 @@ void ReadProcMem(void *pAddress, void *pMem, int iSize)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-vector<uint> vIntroBaseIDs;
-uint GetIntroBaseID()
+vector<UINT> vIntroBaseIDs;
+UINT GetIntroBaseID()
 {
 	double fRand = (double)rand()/(RAND_MAX+1);
 	fRand = fRand * vIntroBaseIDs.size();
-	uint i = (uint)fRand;
+	UINT i = (UINT)fRand;
 	return vIntroBaseIDs[i];
 }
 
@@ -52,10 +52,10 @@ int __cdecl DataStartup(const char *sz, void *thing, void *thing2)
 void FindIntroBases()
 {
 	char szBuf[32];
-	for(uint i=1;;i++)
+	for(UINT i=1;;i++)
 	{
 		sprintf(szBuf, "Intro%u_Base", i);
-		uint iBaseID = Universe::get_base_id(szBuf);
+		UINT iBaseID = Universe::get_base_id(szBuf);
 		if(iBaseID)
 		{
 			vIntroBaseIDs.push_back(iBaseID);
@@ -77,8 +77,8 @@ void WriteHooks()
 	szOver[6] = '\xD0'; //EAX
 	szOver[7] = '\xEB'; //JMP
 	szOver[8] = '\x15';
-	uint *iAddr = (uint*)((char*)&szOver + 1);
-	*iAddr = reinterpret_cast<uint>((void*)GetIntroBaseID); //This simply writes the address of GetIntroBaseID to szOver[1 through 4]
+	UINT *iAddr = (UINT*)((char*)&szOver + 1);
+	*iAddr = reinterpret_cast<UINT>((void*)GetIntroBaseID); //This simply writes the address of GetIntroBaseID to szOver[1 through 4]
 	void *callAddr = (void*)((char*)hModFL + 0x173920);
 	WriteProcMem(callAddr, (void*)&szOver, 9);
 	void *freeAddr = (void*)((char*)hModFL + 0x17397e);

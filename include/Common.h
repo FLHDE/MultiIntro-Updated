@@ -1,13 +1,14 @@
 #ifndef _COMMON_
 #define _COMMON_
 
-#define IMPORT __declspec(dllimport)
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
 
-typedef unsigned int uint;
+#define IMPORT __declspec(dllimport)
 
 namespace Universe
 {
-	IMPORT uint get_base_id(char const *);
+	IMPORT UINT get_base_id(char const *);
 }
 
 class IMPORT INI_Reader

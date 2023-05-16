@@ -6,16 +6,15 @@
 using namespace std;
 
 #define foreach(lst, type, var) for(list<type>::iterator var = lst.begin(); (var != lst.end()); var++)
-typedef unsigned int uint;
 typedef int (__cdecl *_DataStartup)(const char *sz, void *thing, void *thing2);
 
 #include "Common.h"
 
 struct PATCH_INFO_ENTRY
 {
-	uint pAddress;
+	UINT pAddress;
 	void *pNewValue;
-	uint iSize;
+	UINT iSize;
 	void *pOldValue;
 	bool bAlloced;
 };
@@ -23,7 +22,7 @@ struct PATCH_INFO_ENTRY
 struct PATCH_INFO
 {
 	char	*szBinName;
-	uint	pBaseAddress;
+	UINT	pBaseAddress;
 
 	PATCH_INFO_ENTRY piEntries[128];
 };
