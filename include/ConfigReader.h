@@ -5,8 +5,10 @@
 
 struct IntroConfig
 {
-    bool randomIntroOnMenuVisit = true;
-    int introAmount = 0;
+    bool randomIntroOnMenuVisit;
+    int introAmount;
+
+    IntroConfig();
 };
 
 class ConfigReader

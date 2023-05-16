@@ -1,5 +1,9 @@
 #include "ConfigReader.h"
 
+IntroConfig::IntroConfig()
+    : randomIntroOnMenuVisit(true), introAmount(0)
+{}
+
 void ConfigReader::GetConfig(const std::string &path, IntroConfig& config)
 {
     if (!ir.open(path.c_str(), false))
