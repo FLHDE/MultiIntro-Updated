@@ -3,8 +3,6 @@
 #include <string>
 #include <vector>
 
-using namespace std;
-
 #define foreach(lst, type, var) for(list<type>::iterator var = lst.begin(); (var != lst.end()); var++)
 typedef int (__cdecl *_DataStartup)(const char *sz, void *thing, void *thing2);
 

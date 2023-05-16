@@ -27,7 +27,7 @@ void ReadProcMem(void *pAddress, void *pMem, int iSize)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-vector<UINT> vIntroBaseIDs;
+std::vector<UINT> vIntroBaseIDs;
 UINT GetIntroBaseID()
 {
 	double fRand = (double)rand()/(RAND_MAX+1);
