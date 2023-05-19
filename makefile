@@ -39,4 +39,5 @@ $(OBJ_DIR):
 
 # Dependencies
 $(INCLUDE_DIR)\Main.h: $(DEF_INCLUDE_FILE)
-$(SRC_DIR)\main.cpp: $(INCLUDE_DIR)\Main.h
+$(SRC_DIR)\ConfigReader.cpp: $(INCLUDE_DIR)\ConfigReader.h
+$(SRC_DIR)\main.cpp: $(INCLUDE_DIR)\Main.h $(INCLUDE_DIR)\ConfigReader.h
